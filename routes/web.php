@@ -20,8 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user','userController@index');
+Route::get('/user/{id}','userController@show');
 
-
+Route::get('/user/{id}/edit','userController@edit');
 
 Route::get('notes', 'NotesController@index');
 

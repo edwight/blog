@@ -8,7 +8,7 @@ class NotesController extends Controller
 {
     public function index()
     {
-        $notes = \App\Note::all();
+        $notes = Note::all();
      
         return view('notes.index', compact('notes'));
     }

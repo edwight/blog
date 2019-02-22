@@ -16,16 +16,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($notes as $note)
+                @foreach ($users as $user)
                 <tr>
-                    <th scope="row">{{ $note->id }}</th>
-                    <td>{{ $note->title }}</td>
+                    <th scope="row">{{ $user->id }}</th>
+                    <td>{{ $user->name }}</td>
                     <td>
-                    @can('destroy_notes')
-                        <a href="{{ route('notes.destroy', $note->id) }}">Eliminar nota</a>
-                    @else
-                        Usted no puede eliminar esta nota
-                    @endcan
+                    <a href="{{ URL::to('user/'.$user->id .'/edit') }}">editar</a>
+                    </td>
+                    <td>
+                    <a href="{{ URL::to('user/'.$user->id) }}">mostrar</a>
                     </td>
                 </tr>
                 @endforeach

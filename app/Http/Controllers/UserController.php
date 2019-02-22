@@ -4,15 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Note;
+
 class UserController extends Controller
 {
     public function index(){
 
-        Note::create([
-            'title' => 'Titulo de la nota',
-            'content' => 'Contenido de la nueva nota'
-        ]);
-        
+        $users = User::all();
+        return view('usuarios.index', compact('users'));
+    }
+      /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id){
+        $user = User::find($id);
+        return view('usuarios.show', compact('user'));
+    }
+    public function edit($id){
+
+        $user = User::find($id);
+        return view('usuarios.edit', compact('user'));
     }
 }
